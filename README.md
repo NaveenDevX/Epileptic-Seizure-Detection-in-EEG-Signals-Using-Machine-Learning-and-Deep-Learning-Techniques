@@ -1,134 +1,140 @@
-# 🧠 Epileptic Seizure Detection in EEG Signals Using Machine Learning and Deep Learning Techniques
+# Epileptic Seizure Detection in EEG Signals Using Machine Learning and Deep Learning Techniques
 
-## 📑 Table of Contents
-- [🔗 Demo](#-demo)
-- [📌 Overview](#-overview)
-- [🚀 Motivation](#-motivation)
-- [🧪 Technical Aspect](#-technical-aspect)
-- [⚙️ Installation](#️-installation)
-- [▶️ Run](#-run)
-- [🌍 Deployment (Heroku)](#-deployment-heroku)
-- [📂 Directory Tree](#-directory-tree)
-- [📈 To Do](#-to-do)
-- [🐛 Bug / Feature Request](#-bug--feature-request)
-- [🧰 Technologies Used](#-technologies-used)
-- [📜 License](#-license)
-- [🙌 Credits](#-credits)
-
----
-
-## 🔗 Demo
-**Live Web App**: [Click here to try the app](https://your-app-link.streamlit.app) *(Replace this with your real link after deployment)*
+## Table of Contents
+- [Demo](#demo)
+- [Overview](#overview)
+- [Motivation](#motivation)
+- [Technical Aspect](#technical-aspect)
+- [Installation](#installation)
+- [Run](#run)
+- [Deployment (Heroku)](#deployment-heroku)
+- [Directory Tree](#directory-tree)
+- [To Do](#to-do)
+- [Bug / Feature Request](#bug--feature-request)
+- [Technologies Used](#technologies-used)
+- [License](#license)
+- [Credits](#credits)
 
 ---
 
-## 📌 Overview
-This project focuses on early detection of epileptic seizures using EEG signal data.  
-We developed both machine learning and deep learning models to classify seizure vs. non-seizure signals.  
-A Streamlit-based web interface makes it accessible and interactive for public use.
+## Demo
+
+**Web App**: [Link to Live Application](https://your-app-link.streamlit.app)  
+*(Replace with your deployed Streamlit Heroku URL)*
 
 ---
 
-## 🚀 Motivation
-Epileptic seizures are often unpredictable and life-threatening if not addressed quickly.  
-The motivation behind this project was to build a lightweight, accurate system to detect seizure activity from EEG data.  
-We aimed to use machine learning and deep learning for their rapid and scalable analysis capability.  
-Deploying this solution as a web app allows healthcare professionals or patients to access predictions easily.  
-It’s a step toward using AI for real-world health applications that can make a difference.
+## Overview
+
+This project focuses on the automated detection of epileptic seizures using EEG (Electroencephalogram) signals.  
+We have implemented both machine learning and deep learning approaches to classify seizure vs. non-seizure patterns.  
+A user-friendly Streamlit web interface makes it accessible for real-time testing and deployment.
 
 ---
 
-## 🧪 Technical Aspect
+## Motivation
 
-### 🔹 Part 1: Machine Learning & Deep Learning
-- **Dataset Used**: UCI Epileptic Seizure Recognition Dataset  
-- **Preprocessing**: Normalization, reshaping EEG segments, label encoding  
-- **ML Models**: Random Forest, Decision Tree  
-- **DL Models**: Convolutional Neural Networks (CNNs), Fully Connected Networks (FCNs)  
-- **Evaluation**: Accuracy, confusion matrix, precision-recall  
-
-### 🔸 Part 2: Streamlit Web App
-- Built a clean UI using Streamlit  
-- Allows file upload (CSV EEG data)  
-- Performs prediction using trained ML/DL models  
-- Displays prediction and insights interactively  
+The unpredictability and severity of epileptic seizures demand fast, reliable, and scalable detection systems.  
+Manual interpretation of EEG signals is time-consuming and requires domain expertise.  
+This project was inspired by the need for accessible, intelligent diagnostic tools for early seizure prediction.  
+By combining classical ML with advanced deep learning, we aim to provide an automated, accurate solution.  
+Making this system available as a web app further reduces barriers to access in clinical or research settings.
 
 ---
 
-## ⚙️ Installation
+## Technical Aspect
 
-### 1. Clone the repository
+### Part 1: Machine Learning & Deep Learning Approaches
+
+- **Dataset**: UCI Epileptic Seizure Recognition Dataset  
+- **Preprocessing**:
+  - Signal normalization
+  - Reshaping to fit model input
+  - Class balancing and label encoding
+- **Machine Learning Models**:
+  - Random Forest
+  - Decision Tree
+  - XGBoost
+- **Deep Learning Models**:
+  - 1D Convolutional Neural Network (CNN)
+  - Fully Connected Network (DNN)
+- **Evaluation Metrics**:
+  - Accuracy, F1 Score, Precision, Recall, ROC-AUC, Confusion Matrix
+
+### Part 2: Streamlit Web App
+
+- **File Upload**: Accepts raw EEG CSV files
+- **Model Prediction**: Loads pretrained ML/DL models
+- **Visual Feedback**: Displays result with charts and probabilities
+- **Responsive UI**: Built using Streamlit components
+
+---
+
+## Installation
+
+### Step 1: Clone Repository
 ```bash
 git clone https://github.com/yourusername/epileptic-seizure-predictor.git
 cd epileptic-seizure-predictor
 ```
 
-### 2. Create virtual environment (optional but recommended)
+### Step 2: Setup Virtual Environment (Recommended)
 ```bash
 python -m venv venv
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate     # Windows
+source venv/bin/activate      # macOS/Linux
+venv\Scripts\activate         # Windows
 ```
 
-### 3. Install dependencies
+### Step 3: Install Required Packages
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## ▶️ Run
+## Run
 
-### For Linux and macOS users:
+### Linux/macOS:
 ```bash
 streamlit run app.py
 ```
 
-### For Windows users:
+### Windows:
 ```cmd
 streamlit run app.py
 ```
 
 ---
 
-## 🌍 Deployment (Heroku)
+## Deployment (Heroku)
 
-### ✅ Prerequisite: Working Streamlit Web App
+### Step 1: Create and Test Streamlit App Locally
+Ensure your app (`app.py`) runs successfully using:
+```bash
+streamlit run app.py
+```
 
-### Step 1: Prepare for deployment
-- Create a `requirements.txt` file:
-  ```bash
-  pip freeze > requirements.txt
-  ```
-- Create a `Procfile` with:
+### Step 2: Prepare Heroku Files
+- `requirements.txt`: Contains Python packages
+- `Procfile`: Tells Heroku how to run the app
   ```
   web: streamlit run app.py
   ```
-- Optional: Add `setup.sh`, `runtime.txt` for specific Python version
+- (Optional) `setup.sh`, `runtime.txt`
 
-### Step 2: Deploy to Heroku
-1. Login to Heroku:
-   ```bash
-   heroku login
-   ```
-2. Create a new Heroku app:
-   ```bash
-   heroku create seizure-predictor
-   ```
-3. Push code to Heroku:
-   ```bash
-   git add .
-   git commit -m "Deploy Streamlit app"
-   git push heroku main
-   ```
-4. Open your app:
-   ```bash
-   heroku open
-   ```
+### Step 3: Deploy to Heroku
+```bash
+heroku login
+heroku create seizure-predictor
+git add .
+git commit -m "Initial deployment"
+git push heroku main
+heroku open
+```
 
 ---
 
-## 📂 Directory Tree
+## Directory Tree
 
 ```
 epileptic-seizure-predictor/
@@ -137,64 +143,72 @@ epileptic-seizure-predictor/
 │   ├── seizure_cnn_model.h5
 │   └── seizure_rf_model.pkl
 ├── utils/
-│   └── preprocess.py
+│   ├── preprocess.py
+│   └── visualization.py
 ├── data/
 │   └── sample_eeg.csv
 ├── requirements.txt
 ├── Procfile
+├── runtime.txt
 ├── README.md
-└── assets/
-    └── demo.gif
+├── assets/
+│   ├── architecture_diagram.png
+│   └── performance_charts/
+└── LICENSE
 ```
 
 ---
 
-## 📈 To Do
-- Improve accuracy with hybrid CNN-LSTM model  
-- Integrate real-time EEG data processing  
-- Add feature to visualize EEG signals before prediction  
-- Deploy on multiple cloud platforms  
-- Add feedback loop for continuous learning  
+## To Do
+
+- Integrate real-time EEG stream input  
+- Extend to multiclass seizure classification  
+- Add model explainability using SHAP/LIME  
+- Improve deep learning architecture using RNN/CNN hybrid models  
+- Support mobile and offline web deployment
 
 ---
 
-## 🐛 Bug / Feature Request
+## Bug / Feature Request
 
-If you find a bug (e.g., crash or invalid result), kindly open an [issue here](https://github.com/yourusername/epileptic-seizure-predictor/issues) with:
-- Your input EEG file  
-- Expected output  
-- Actual behavior  
+Found a bug or want to suggest a feature? Please open an issue with the following:
 
-If you’d like to request a new feature, feel free to do so by opening an issue and describing:
-- What it should do  
-- How it helps  
-- Sample input/output if possible  
+- Steps to reproduce
+- Expected vs actual behavior
+- Suggestions or feature request format
+
+[Open an issue](https://github.com/yourusername/epileptic-seizure-predictor/issues)
 
 ---
 
-## 🧰 Technologies Used
+## Technologies Used
 
-| Tech Stack | Description |
-|------------|-------------|
-| ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) | Core programming language |
-| ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white) | Web app framework |
-| ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikit-learn&logoColor=white) | ML models |
-| ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=white) | Deep learning framework |
-| ![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=white) | Deployment platform |
-| ![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white) | Data manipulation |
-| ![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white) | Scientific computation |
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+| Technology      | Purpose                             |
+|----------------|-------------------------------------|
+| Python          | Core language                       |
+| NumPy           | Numerical operations                |
+| Pandas          | Data handling and transformation    |
+| Matplotlib      | Data visualization                  |
+| Seaborn         | Statistical plots                   |
+| Scikit-learn    | Machine learning models             |
+| TensorFlow/Keras| Deep learning model implementation  |
+| XGBoost         | Gradient boosting ML model          |
+| Streamlit       | Web app development                 |
+| Heroku          | App deployment                      |
+| Pickle          | Model serialization                 |
 
 ---
 
-## 🙌 Credits
+## License
 
-Thanks to:
-- UCI for the EEG Seizure dataset  
-- Open-source contributors of Streamlit, TensorFlow, and scikit-learn  
-# Epileptic-Seizure-Detection-in-EEG-Signals-Using-Machine-Learning-and-Deep-Learning-Techniques
+This project is licensed under the MIT License.  
+See the [LICENSE](LICENSE) file for more details.
+
+---
+
+## Credits
+
+- UCI Machine Learning Repository for the EEG dataset  
+- Open-source packages and frameworks  
+- Research papers on epileptic seizure classification  
+
